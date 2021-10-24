@@ -14,11 +14,35 @@ struct VECTOR __init__(float i,float j,float k);
 float dot_product(struct VECTOR a,struct VECTOR b,float angle);
 int main(){
 	own_info();
+	float i1,j1,k1;
+	float i2,j2,k2;
+		printf("\nEnter Vector i,j,k co-efficient :\n");
+		printf("\n\t\tVECTOR 1:\n");
+		printf("\n i co-efficient :");
+		scanf("%f",&i1);
+		printf("\n j co-efficient :");
+		scanf("%f",&j1);
+		printf("\n k co-efficient :");
+		scanf("%f",&k1);
+
+printf("\n\n\t\t\tVECTOR 2:\n");
+printf("\n i co-efficient :");
+scanf("%f",&i2);
+printf("\n j co-efficient :");
+scanf("%f",&j2);
+printf("\n k co-efficient :");
+scanf("%f",&k2);
+
 	struct VECTOR a;
 	struct VECTOR b;
 	float dot_p;
-	a=__init__(1,2,3);
-	b=__init__(2,8,-8);
+	/****************************
+	 vector set initializer __init__
+	 magnitude set up in struct VECTOR
+	 data type above
+	*****************************/
+	a=__init__(i1,j1,k1);
+	b=__init__(i2,j2,k2);
 		float deg_angle=0;
 		float rad_angle;
  rad_angle=degree_to_radian(deg_angle);
@@ -29,7 +53,13 @@ int main(){
 		//pruduct
 		dot_p=dot_product(a,b,rad_angle);	
 		//printf("\n%.0fi + %fk + %fk\n mgnde=%f",angle,a.j,a.k,a.magnitude);
-		printf("\n %.0f° deg = %f rad |  a.b=|a||b|.cos(θ)==%f",deg_angle,rad_angle,dot_p);
+		if(deg_angle<90)
+		printf("\n\033[32m%.0f° deg = %f rad |  a.b=|a||b|.cos(θ)==%f",deg_angle,rad_angle,dot_p);
+		if(deg_angle==90)
+		printf("\n\033[31m%.0f° deg = %f rad |  a.b=|a||b|.cos(θ)==%f",deg_angle,rad_angle,dot_p);
+		if(deg_angle>90)
+		printf("\n\033[93m%.0f° deg = %f rad |  a.b=|a||b|.cos(θ)==%f",deg_angle,rad_angle,dot_p);
+	
 		//printf("\n%.0f°==  %f",deg_angle,rad_angle);	
 	deg_angle++;
     //deg_angle=deg_angle+0.001;
